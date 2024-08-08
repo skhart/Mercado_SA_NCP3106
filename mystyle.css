@@ -1,0 +1,99 @@
+/* Ensure html and body take up the full height of the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+/* Style for the fullbleed section */
+.fullbleed {
+    padding: 20px;
+    background-color: #939aff;
+}
+
+/* Style for the inverse section */
+.inverse {
+    padding: 20px;
+    background-color: black;
+    color: white; /* Ensure text is visible on a black background */
+}
+
+/* Add some extra height to ensure scrolling */
+.fullbleed, .inverse {
+    min-height: 100vh; /* Ensure each section is at least as tall as the viewport */
+}
+
+/* Image container style */
+.image-container {
+    display: flex;
+    position: relative; /* Ensures that z-index works */
+    width: 100%;
+    height: 500px;
+}
+
+/* Background div style */
+.background-div {
+    background-color: #93a9ff;
+    opacity: 1.0;
+    transform: scale(1, 1);
+    width: 30%;
+    height: 500px;
+    overflow: hidden;
+    position: absolute; /* Positioned relative to .image-container */
+    z-index: 1; /* Place it below the image */
+}
+
+/* Image and text container style */
+.image-content {
+    position: relative; /* Ensure z-index affects child elements */
+    z-index: 2; /* Ensure it is above the background div */
+    display: flex;
+    align-items: center; /* Align items vertically center */
+    width: 100%;
+    height: 100%;
+}
+
+/* Style for the image container */
+.image-left {
+    flex: 1;
+}
+
+.image{
+    width: 100px;
+    height: 100px;
+}
+
+.image-left img {
+    width: 80%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
+}
+
+/* Style for the text container */
+.text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center text vertically */
+    align-items: center; /* Center text horizontally */
+    text-align: center; /* Center text horizontally */
+}
+
+.text-content p {
+    margin: 0;
+    color: white; /* Text color */
+}
+
+.highlight-text {
+    color: #939aff; /* Highlighted text color */
+    font-size: 24px; /* Adjust font size as needed */
+}
+
+/* Style for the span element */
+.span {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-size: 24px; /* Adjust font size as needed */
+    color: white; /* Text color */
+}
