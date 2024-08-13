@@ -1,0 +1,342 @@
+/* Ensure html and body take up the full height of the viewport */
+body, html, p {
+    margin: 0;
+    padding: 0;
+    font-synthesis: none;
+    font-kerning: none;
+    font-variant-ligatures: none;
+    font-feature-settings: "kern" 0, "calt" 0, "liga" 0, "clig" 0, "dlig" 0, "hlig" 0;
+    font-family: unset;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: geometricprecision;
+    white-space: normal;
+     overflow-x: hidden;
+}
+
+/* Style for the fullbleed section */
+.fullbleed {
+    padding: 20px;
+    background-color: #939aff;
+    height: 50%;
+    width: 100%;
+}
+
+/* Style for the inverse section */
+.inverse {
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    background-color: #000; /* Ensure background is visible */
+    color: #fff; /* Ensure text is readable */
+    text-align: center; /* Center text */
+}
+
+/* Add some extra height to ensure scrolling */
+.fullbleed, .inverse {
+    min-height: 100vmax; /* Ensure each section is at least as tall as the viewport */
+    min-width: 100vmax;
+}
+
+/* Ensure the containing element has relative positioning */
+.image-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Fix background div position */
+.background-div {
+    background-color: #93a9ff;
+    opacity: 1.0;
+    width: 30%; /* Width of the background */
+    height: 500px; /* Height of the background */
+    position: absolute; /* Position it absolutely */
+    z-index: 1; /* Ensure it is below other content */
+    top: 0; /* Align to the top of the containing element */
+    left: 0; /* Align to the left of the containing element */
+    overflow: hidden; /* Hide overflow if necessary */
+}
+
+/* Fix image positioning and size */
+.image-left {
+    width: 30%; /* Match the width of background-div */
+    height: 500px; /* Match the height of background-div */
+    overflow: hidden; /* Hide overflow if necessary */
+    position: relative; /* Ensure relative positioning for the child element */
+}
+
+/* Blob image style */
+.blob-image {
+    clip-path: url(#blob-mask); /* Apply the clip path */
+    width: 100%; /* Match the width of the container */
+    height: 100%; /* Match the height of the container */
+    position: absolute; /* Allow absolute positioning to fill the container */
+    top: 0; /* Align to the top of the container */
+    left: 0; /* Align to the left of the container */
+    z-index: 2; /* Ensure it is above the background-div */
+}
+
+/* Image and text container style */
+.image-content {
+    position: relative; /* Ensure z-index affects child elements */
+    z-index: 2; /* Ensure it is above the background div */
+    display: flex;
+    align-items: center; /* Align items vertically center */
+    width: 100%;
+    max-width: 9000px; /* Limit the maximum width */
+    height: 100%;
+    max-height: 1200px;
+    margin: 0 auto; /* Center the content horizontally */
+}
+.image-content img {
+    width: 100%; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: add rounded corners */
+}
+
+/* Style for SVG container */
+.svg-container {
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: center; /* Center items horizontally */
+    gap: 20px; /* Space between SVGs */
+    flex-wrap: wrap; /* Allow wrapping if necessary */
+}
+.svg-box {
+    /* Border for the container */
+    padding: 10px; /* Add padding around the SVG */
+}
+.svg-box {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .svg-box:hover {
+    transform: scale(1.1); /* Adjust the scale factor as needed */
+  }
+/* Style for SVGs */
+.svg-container svg {
+    width: 300px; /* Set width of SVGs */
+    height: 300px; /* Set height of SVGs */
+}
+
+/* Style for the parent container */
+.parent-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+}
+
+/* Style for the vertical SVG container with ID */
+.svg-container-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between SVGs */
+}
+
+/* Style for each SVG box */
+#svg-container-vertical .svg-box {
+    width: 100px; /* Set the desired width to increase length */
+    height: auto; /* Height will adjust based on SVG content */
+    padding: 20px; /* Optional padding */
+    box-sizing: border-box; /* Include padding and border in the width/height */
+}
+
+.text-and-svg-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 0;
+    width: 100%;
+}
+
+.text-container {
+    font-size: 2em; /* Adjust font size as needed */
+    color: white; /* Text color */
+    flex: 1; /* Allow it to take up available space */
+    text-align: left; /* Align text to the left */
+    margin-right: 20px; /* Space between text and SVG */
+}
+
+
+#text2 {
+    flex: 1;
+    width: 300px;
+    height: 150px;
+    position: relative;
+    text-align: right; /* This aligns text inside the container to the right */
+}
+
+#text2 svg {
+    width: 100%;
+    height: 100%;
+}
+
+#text2 text {
+    text-anchor: end; /* Align text to the end (right) */
+    dominant-baseline: middle;
+    display: inline-block;
+}
+
+.image-gallery {
+    position: relative;
+    height: 20%; /* Adjust as needed */
+    width: 100%;
+}
+
+.gallery-item {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15%; /* Each image takes up half of the gallery */
+}
+
+.left-item {
+    left: 0;
+}
+
+.right-item {
+    right: 0;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Style for the socials container */
+.socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    height: 100vh; /* Ensure the container takes the full viewport height for vertical centering */
+    text-align: center; /* Center text inside container */
+    width: 100%; /* Ensure container takes full width for centering */
+}
+
+/* Style for email container */
+.email {
+    text-align: center; /* Center text within the email container */
+    display: flex;
+    flex-direction: column; /* Stack text and icon vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    width: 100%; /* Ensure the email container takes full width */
+    margin-bottom: 20px; /* Space between email and social icons */
+}
+
+/* Style for email address text */
+.email-address {
+    text-align: left;
+    font-size: 50px; /* Adjust as needed */
+    margin-bottom: 20px; /* Space between email address and social icons */
+}
+
+/* Style for the social icon container */
+.social-icon {
+    margin-top: 10px; /* Space above the icon */
+}
+
+/* Style for the social icon */
+.social-icon svg {
+    width: 50px; /* Adjust width */
+    height: 50px; /* Adjust height */
+}
+
+/* Style for the follow me text */
+.follow-me {
+    text-align: left;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 20px 0; /* Space between follow me text and email address */
+}
+
+#ZErHG7fbd51H3cXY h1, 
+#ZErHG7fbd51H3cXY p {
+    animation: slide-up 1s ease-out forwards;
+}
+
+#ZErHG7fbd51H3cXY h1 {
+    animation-delay: 0.5s; /* Delay for h1 */
+}
+
+#ZErHG7fbd51H3cXY p {
+    animation-delay: 1s; /* Delay for p */
+}
+
+#ZErHG7fbd51H3cXY {
+    --first-font-size: 8.58955344em;
+    --last-font-size: 8.58953148em;
+    margin-top: calc(var(--first-font-size)* 0.05);
+    margin-bottom: calc(var(--last-font-size)* 0.05);
+}
+
+#YAFdJvl8raw-0{
+    color: #ffffff;
+    direction: ltr;
+    margin-left: 0em;
+    line-height: 1.17857143em;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0em;
+}
+#MVMIbaAw9b7DjOgI {
+    grid-template-columns: 5.62225476rem 0 20.4693623rem 2.29268043rem 8.25007142rem 
+                           12.21929088rem 2.29268043rem 15.96157475rem 4.50778755rem
+                           2.29268043rem 20.4693623rem 0 5.62225476rem;
+    grid-template-rows: minmax(5.62225476rem, max-content) 0 minmax(4.09956076rem,
+                        max-content) minmax(0.79795022rem, max-content) 
+                        minmax(6.95230503rem, max-content) 0 0 0 minmax(28.36276116rem, max-content)
+                        0 0 0 minmax(10.38771566rem, max-content);
+}
+.large-svg {
+    width: 32px;  /* Adjust the width as needed */
+    height: 32px; /* Adjust the height as needed */
+}
+.animated-container {
+    display: inline-block;
+    animation: moveUp 2s ease-in-out infinite;
+  }
+  
+  @keyframes moveUp {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  .carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  .carousel {
+    display: flex;
+    width: calc(375px * 4); /* Total width of the images */
+    animation: scroll 20s linear infinite;
+  }
+  
+  .carousel svg {
+    display: flex;
+    flex-shrink: 0;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-1500px); /* Width of the carousel */
+    }
+  }
+  
